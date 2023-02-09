@@ -1,0 +1,430 @@
+{
+	'carritocompras': [{
+		'idCarrito': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': False,
+			'default': '',
+			'increment': True,
+			'primary': False,
+			'on_update': ''
+		},
+		'idUsuario': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'idProducto': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Cantidad': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		}
+	}, {
+		'carritocompras_ibfk_1': {
+			'reference': 'idUsuario',
+			'referenced_col': 'idUsuario',
+			'referenced_tbl': 'usuarios'
+		},
+		'carritocompras_ibfk_2': {
+			'reference': 'idProducto',
+			'referenced_col': 'idProducto',
+			'referenced_tbl': 'productos'
+		}
+	}],
+	'categorias': [{
+		'idCategoria': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': False,
+			'default': '',
+			'increment': True,
+			'primary': False,
+			'on_update': ''
+		},
+		'Descripcion': {
+			'type': 'varchar(30)',
+			'size': '30',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		}
+	}, {}],
+	'compra': [{
+		'idCompra': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': False,
+			'default': '',
+			'increment': True,
+			'primary': False,
+			'on_update': ''
+		},
+		'idUsuario': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': False,
+			'default': '',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'idMetodoPago': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': False,
+			'default': '',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'idDomicilio': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': False,
+			'default': '',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Monto': {
+			'type': 'double',
+			'size': '',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Dedicatoria': {
+			'type': 'varchar(200)',
+			'size': '200',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Nombre': {
+			'type': 'varchar(60)',
+			'size': '60',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'idsProductos': {
+			'type': 'varchar(100)',
+			'size': '100',
+			'can_null': False,
+			'default': '',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Estado': {
+			'type': 'varchar(45)',
+			'size': '45',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		}
+	}, {
+		'compra_ibfk_1': {
+			'reference': 'idUsuario',
+			'referenced_col': 'idUsuario',
+			'referenced_tbl': 'usuarios'
+		},
+		'compra_ibfk_2': {
+			'reference': 'idMetodoPago',
+			'referenced_col': 'idMetodoPago',
+			'referenced_tbl': 'metodopago'
+		},
+		'compra_ibfk_3': {
+			'reference': 'idMetodoPago',
+			'referenced_col': 'idDomicilio',
+			'referenced_tbl': 'domicilio'
+		}
+	}],
+	'domicilio': [{
+		'idDomicilio': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': False,
+			'default': '',
+			'increment': True,
+			'primary': False,
+			'on_update': ''
+		},
+		'Numero': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'idUsuario': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Calle': {
+			'type': 'varchar(45)',
+			'size': '45',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Colonia': {
+			'type': 'varchar(45)',
+			'size': '45',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Municipio': {
+			'type': 'varchar(45)',
+			'size': '45',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Estado': {
+			'type': 'varchar(45)',
+			'size': '45',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'CodigoPostal': {
+			'type': 'varchar(10)',
+			'size': '10',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		}
+	}, {
+		'domicilio_ibfk_1': {
+			'reference': 'idUsuario',
+			'referenced_col': 'idUsuario',
+			'referenced_tbl': 'usuarios'
+		}
+	}],
+	'metodopago': [{
+		'idMetodoPago': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': False,
+			'default': '',
+			'increment': True,
+			'primary': False,
+			'on_update': ''
+		},
+		'idUsuario': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': False,
+			'default': '',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Nombre': {
+			'type': 'varchar(200)',
+			'size': '200',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Banco': {
+			'type': 'varchar(45)',
+			'size': '45',
+			'can_null': False,
+			'default': '',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Cuenta': {
+			'type': 'varchar(20)',
+			'size': '20',
+			'can_null': False,
+			'default': '',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		}
+	}, {
+		'metodopago_ibfk_1': {
+			'reference': 'idUsuario',
+			'referenced_col': 'idUsuario',
+			'referenced_tbl': 'usuarios'
+		}
+	}],
+	'productos': [{
+		'idProducto': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': False,
+			'default': '',
+			'increment': True,
+			'primary': False,
+			'on_update': ''
+		},
+		'idCategoria': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': False,
+			'default': '',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Precio': {
+			'type': 'double',
+			'size': '',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Nombre': {
+			'type': 'varchar(45)',
+			'size': '45',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Descripcion': {
+			'type': 'varchar(100)',
+			'size': '100',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Tamanio': {
+			'type': 'varchar(45)',
+			'size': '45',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Imagen': {
+			'type': 'varchar(150)',
+			'size': '150',
+			'can_null': True,
+			'default': 'NULL',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		}
+	}, {
+		'productos_ibfk_1': {
+			'reference': 'idCategoria',
+			'referenced_col': 'idCategoria',
+			'referenced_tbl': 'categorias'
+		}
+	}],
+	'usuarios': [{
+		'idUsuario': {
+			'type': 'int(11)',
+			'size': '11',
+			'can_null': False,
+			'default': '',
+			'increment': True,
+			'primary': False,
+			'on_update': ''
+		},
+		'Nombre': {
+			'type': 'varchar(45)',
+			'size': '45',
+			'can_null': False,
+			'default': '',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Apellidos': {
+			'type': 'varchar(45)',
+			'size': '45',
+			'can_null': False,
+			'default': '',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Correo': {
+			'type': 'varchar(45)',
+			'size': '45',
+			'can_null': False,
+			'default': '',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Contrasenia': {
+			'type': 'varchar(50)',
+			'size': '50',
+			'can_null': False,
+			'default': '',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		},
+		'Tipo': {
+			'type': 'varchar(45)',
+			'size': '45',
+			'can_null': False,
+			'default': '',
+			'increment': False,
+			'primary': False,
+			'on_update': ''
+		}
+	}, {}]
+}

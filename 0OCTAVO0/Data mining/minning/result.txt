@@ -1,0 +1,51 @@
++----+-----------------------+----------------------------------------+-------------------------------------------------------+---------------------------------------------------------------+
+|    |      1-item sets      |              2-item sets               |                      3-item sets                      |                          4-item sets                          |
++----+-----------------------+----------------------------------------+-------------------------------------------------------+---------------------------------------------------------------+
+| 1  |   outlook=sunny, (5)  |  outlook=sunny, temperature=hot, (2)   |   outlook=sunny, temperature=hot, humidity=high, (2)  |  outlook=sunny, temperature=hot, humidity=high, play=no, (2)  |
+| 2  | outlook=overcast, (4) |  outlook=sunny, temperature=mild, (2)  |      outlook=sunny, temperature=hot, play=no, (2)     |    outlook=sunny, humidity=high, windy=false, play=no, (2)    |
+| 3  |   outlook=rainy, (5)  |   outlook=sunny, humidity=high, (3)    |     outlook=sunny, humidity=high, windy=false, (2)    | outlook=overcast, temperature=hot, windy=false, play=yes, (2) |
+| 4  |  temperature=hot, (4) |  outlook=sunny, humidity=normal, (2)   |       outlook=sunny, humidity=high, play=no, (3)      |  outlook=rainy, temperature=mild, windy=false, play=yes, (2)  |
+| 5  | temperature=mild, (6) |    outlook=sunny, windy=false, (3)     |     outlook=sunny, humidity=normal, play=yes, (2)     |   outlook=rainy, humidity=normal, windy=false, play=yes, (2)  |
+| 6  | temperature=cool, (4) |     outlook=sunny, windy=true, (2)     |        outlook=sunny, windy=false, play=no, (2)       | temperature=cool, humidity=normal, windy=false, play=yes, (2) |
+| 7  |   humidity=high, (7)  |      outlook=sunny, play=no, (3)       |  outlook=overcast, temperature=hot, windy=false, (2)  |                                                               |
+| 8  |  humidity=normal, (7) |      outlook=sunny, play=yes, (2)      |    outlook=overcast, temperature=hot, play=yes, (2)   |                                                               |
+| 9  |    windy=false, (8)   | outlook=overcast, temperature=hot, (2) |     outlook=overcast, humidity=high, play=yes, (2)    |                                                               |
+| 10 |    windy=true, (6)    |  outlook=overcast, humidity=high, (2)  |    outlook=overcast, humidity=normal, play=yes, (2)   |                                                               |
+| 11 |      play=no, (5)     | outlook=overcast, humidity=normal, (2) |      outlook=overcast, windy=false, play=yes, (2)     |                                                               |
+| 12 |     play=yes, (9)     |   outlook=overcast, windy=false, (2)   |      outlook=overcast, windy=true, play=yes, (2)      |                                                               |
+| 13 |                       |   outlook=overcast, windy=true, (2)    |  outlook=rainy, temperature=mild, humidity=high, (2)  |                                                               |
+| 14 |                       |    outlook=overcast, play=yes, (4)     |   outlook=rainy, temperature=mild, windy=false, (2)   |                                                               |
+| 15 |                       |  outlook=rainy, temperature=mild, (3)  |     outlook=rainy, temperature=mild, play=yes, (2)    |                                                               |
+| 16 |                       |  outlook=rainy, temperature=cool, (2)  | outlook=rainy, temperature=cool, humidity=normal, (2) |                                                               |
+| 17 |                       |   outlook=rainy, humidity=high, (2)    |    outlook=rainy, humidity=normal, windy=false, (2)   |                                                               |
+| 18 |                       |  outlook=rainy, humidity=normal, (3)   |     outlook=rainy, humidity=normal, play=yes, (2)     |                                                               |
+| 19 |                       |    outlook=rainy, windy=false, (3)     |       outlook=rainy, windy=false, play=yes, (3)       |                                                               |
+| 20 |                       |     outlook=rainy, windy=true, (2)     |        outlook=rainy, windy=true, play=no, (2)        |                                                               |
+| 21 |                       |      outlook=rainy, play=no, (2)       |    temperature=hot, humidity=high, windy=false, (2)   |                                                               |
+| 22 |                       |      outlook=rainy, play=yes, (3)      |      temperature=hot, humidity=high, play=no, (2)     |                                                               |
+| 23 |                       |  temperature=hot, humidity=high, (3)   |      temperature=hot, windy=false, play=yes, (2)      |                                                               |
+| 24 |                       |   temperature=hot, windy=false, (3)    |   temperature=mild, humidity=high, windy=false, (2)   |                                                               |
+| 25 |                       |     temperature=hot, play=no, (2)      |    temperature=mild, humidity=high, windy=true, (2)   |                                                               |
+| 26 |                       |     temperature=hot, play=yes, (2)     |     temperature=mild, humidity=high, play=no, (2)     |                                                               |
+| 27 |                       |  temperature=mild, humidity=high, (4)  |     temperature=mild, humidity=high, play=yes, (2)    |                                                               |
+| 28 |                       | temperature=mild, humidity=normal, (2) |    temperature=mild, humidity=normal, play=yes, (2)   |                                                               |
+| 29 |                       |   temperature=mild, windy=false, (3)   |      temperature=mild, windy=false, play=yes, (2)     |                                                               |
+| 30 |                       |   temperature=mild, windy=true, (3)    |      temperature=mild, windy=true, play=yes, (2)      |                                                               |
+| 31 |                       |     temperature=mild, play=no, (2)     |  temperature=cool, humidity=normal, windy=false, (2)  |                                                               |
+| 32 |                       |    temperature=mild, play=yes, (4)     |   temperature=cool, humidity=normal, windy=true, (2)  |                                                               |
+| 33 |                       | temperature=cool, humidity=normal, (4) |    temperature=cool, humidity=normal, play=yes, (3)   |                                                               |
+| 34 |                       |   temperature=cool, windy=false, (2)   |      temperature=cool, windy=false, play=yes, (2)     |                                                               |
+| 35 |                       |   temperature=cool, windy=true, (2)    |        humidity=high, windy=false, play=no, (2)       |                                                               |
+| 36 |                       |    temperature=cool, play=yes, (3)     |       humidity=high, windy=false, play=yes, (2)       |                                                               |
+| 37 |                       |    humidity=high, windy=false, (4)     |        humidity=high, windy=true, play=no, (2)        |                                                               |
+| 38 |                       |     humidity=high, windy=true, (3)     |      humidity=normal, windy=false, play=yes, (4)      |                                                               |
+| 39 |                       |      humidity=high, play=no, (4)       |       humidity=normal, windy=true, play=yes, (2)      |                                                               |
+| 40 |                       |      humidity=high, play=yes, (3)      |                                                       |                                                               |
+| 41 |                       |   humidity=normal, windy=false, (4)    |                                                       |                                                               |
+| 42 |                       |    humidity=normal, windy=true, (3)    |                                                       |                                                               |
+| 43 |                       |     humidity=normal, play=yes, (6)     |                                                       |                                                               |
+| 44 |                       |       windy=false, play=no, (2)        |                                                       |                                                               |
+| 45 |                       |       windy=false, play=yes, (6)       |                                                       |                                                               |
+| 46 |                       |        windy=true, play=no, (3)        |                                                       |                                                               |
+| 47 |                       |       windy=true, play=yes, (3)        |                                                       |                                                               |
++----+-----------------------+----------------------------------------+-------------------------------------------------------+---------------------------------------------------------------+
