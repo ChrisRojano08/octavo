@@ -3,8 +3,11 @@ clear all
 
 shapesP = ['.','o','x','+','*','s','d','v','^','<','>','p','h'];
 %P = [3,2];
-P = [4.2,1.8];
-kn = 1;
+%P = [4.2,1.8];
+%P = [2,2.1];
+%P = [1,4];
+P = [2.5,2.5];
+kn = 5;
 
 shMod = 9;
 [n,t,r] = xlsread('data.xlsx');
@@ -40,6 +43,11 @@ sortedDists = sortrows(dist,4);
 KNN = sortedDists(1:kn,:);
 claseP = mode(KNN(:, (3) ) );
 plot( P(1), P(2), shapesP(claseP+shMod) );
+
+for i=1: kn
+    wei = (KNN(kn,4)-KNN(i,4)) / (KNN(kn,4)-KNN(1,4)) ;
+    fprintf('\n(%g - %g)/(%g - %g) = %g', KNN(kn,4),KNN(i,4),KNN(kn,4),KNN(1,4), wei);
+end
 
 fprintf('\nLos vecinos màs cercanos fueron\n');
 disp(KNN);
