@@ -1,0 +1,25 @@
+iniciar-programa
+
+    define-nueva-instruccion GIRA-DERECHA como inicio
+        gira-izquierda;
+        gira-izquierda;
+        gira-izquierda;
+    fin;
+
+    define-nueva-instruccion BAJA-TOMA como inicio
+        avanza;
+        GIRA-DERECHA;
+        avanza;
+        coge-zumbador;
+        gira-izquierda;
+    fin;
+
+    inicia-ejecucion
+
+        mientras frente-libre hacer inicio
+            BAJA-TOMA;
+        fin;
+
+        apagate;
+    termina-ejecucion
+finalizar-programa
