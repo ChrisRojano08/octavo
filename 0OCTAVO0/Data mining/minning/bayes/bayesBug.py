@@ -10,16 +10,10 @@ def errorcheck(itemA,data,items):
     finalist = []
 
     for x in auxItems:
-        auxs = []
-        for y in auxPoints:
-            auxs.append([i for i in data if x in i if y in i])
-        
-        auxCount = [[auxPoints[i], len(auxs[i])] for i in range(len(auxs))]
-        flAx = []
-        flAx.append(str(x))
-        flAx.extend(auxCount)
+        auxNo = [i for i in data if x in i if auxPoints[0] in i]
+        auxYes = [i for i in data if x in i if auxPoints[1] in i]
 
-        finalist.append(flAx)
+        finalist.append([str(x), [str(auxPoints[1]), len(auxYes) ], [str(auxPoints[0]), len(auxNo) ] ])
 
     listF = []
     for it in items:
@@ -54,20 +48,18 @@ def generate():
     colms = []
 
     [listError, listH] = errorcheck(itemA,data,items)
+
+    print(listError)
     for i in range(len(listError)):
-        colmsDf = [' ']
         axDF = []
         for j in range(len(listError[i])):
-            colmsDf.extend([x[0] for x in listError[i][j][1:] if x[0] not in colmsDf])
+            axDF.append([listError[i][j][0], listError[i][j][1][1], listError[i][j][2][1]])
 
-            valE = []
-            valE.append(listError[i][j][0])
-            valE.extend([x[1] for x in listError[i][j][1:]])
+        print(axDF)
+        print('')
 
-            axDF.extend([valE])
-        
         d2 = pd.DataFrame(axDF)
-        d2.columns = colmsDf
+        d2.columns = [' ','Yes','No']
         result = pd.ExcelWriter('data/data_'+dataColm[i]+'.xlsx')
         d2.to_excel(result, index=False)
         result.save()
@@ -182,9 +174,7 @@ for i in range(len(prediction)):
     predicAx = []
     for j in range(len(play)):
         likeliAxS = 1
-        
-        if play[j][0] not in head:
-            head.append(play[j][0])
+        head.append(play[j][0])
         for attrEv in prediction[i]:
             idxAttr = [x[0] for x in dataH].index(attrEv)
             idxPlay = [x[0] for x in dataH[idxAttr]].index(play[j][0])
@@ -199,7 +189,7 @@ for i in range(len(prediction)):
     likeli.append(likeliAx)
 
 
-colums = np.append(colums, [x for x in head])
+colums = np.append(colums, [x for x in set(head)])
 d2 = pd.DataFrame(predic)
 d2.columns = colums
 result = pd.ExcelWriter('output.xlsx')
