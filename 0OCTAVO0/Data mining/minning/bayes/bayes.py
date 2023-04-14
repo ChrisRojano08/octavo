@@ -169,7 +169,7 @@ mu = 1
 [columnas, data, play, dataH, playN] = generate()
 probM = genProb(columnas)
 
-dataframe = pd.read_excel('data.xlsx', converters={'windy':str}, sheet_name='prediccion')
+dataframe = pd.read_excel('dataNew.xlsx', converters={'windy':str}, sheet_name='prediccion')
 prediction = list(dataframe.values)
 colums = dataframe.columns.ravel()
 tot = sum(row[1] for row in play)
