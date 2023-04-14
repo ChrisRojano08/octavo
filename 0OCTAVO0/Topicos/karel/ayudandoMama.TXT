@@ -1,0 +1,108 @@
+iniciar-programa
+    define-nueva-instruccion TOMA como inicio
+       si junto-a-zumbador entonces inicio
+           coge-zumbador;
+       fin;
+    fin;
+
+    define-nueva-instruccion GIRA-DERECHA como inicio
+        gira-izquierda;
+        gira-izquierda;
+        gira-izquierda;
+    fin;
+
+    define-nueva-instruccion DERECHA como inicio
+       mientras no-orientado-al-este hacer inicio
+               gira-izquierda;
+           fin;
+
+           avanza;
+           TOMA;
+    fin;
+
+    define-nueva-instruccion IZQ como inicio
+       mientras no-orientado-al-oeste hacer inicio
+               gira-izquierda;
+           fin;
+           avanza;
+           TOMA;
+    fin;
+
+    inicia-ejecucion
+        TOMA;
+        mientras no-orientado-al-este hacer inicio
+           gira-izquierda;
+        fin;
+
+        mientras frente-libre hacer inicio
+
+           DERECHA;
+
+           si frente-bloqueado entonces inicio
+               si orientado-al-este entonces inicio
+                 gira-izquierda;
+                 avanza;
+                 TOMA;
+
+                 si derecha-libre entonces inicio
+                     GIRA-DERECHA;
+                     avanza;
+                     GIRA-DERECHA;
+
+                     mientras frente-libre hacer inicio
+                         avanza
+                     fin;
+
+                     mientras algun-zumbador-en-la-mochila hacer inicio
+                         deja-zumbador;
+                     fin;
+
+                     apagate;
+                 fin;
+
+                 si derecha-bloqueada entonces inicio
+                     mientras no-orientado-al-oeste hacer inicio
+                         gira-izquierda;
+                     fin;
+                 fin;
+
+
+               fin;
+               si orientado-al-oeste entonces inicio
+                   mientras frente-libre hacer inicio
+                       IZQ;
+                   fin;
+
+                  mientras no-orientado-al-norte hacer inicio
+                      gira-izquierda;
+                  fin;
+                  avanza;
+                  mientras no-orientado-al-este hacer inicio
+                      gira-izquierda;
+                  fin;
+               fin;
+           fin;
+
+
+
+        fin;
+
+        apagate;
+    termina-ejecucion
+
+finalizar-programa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

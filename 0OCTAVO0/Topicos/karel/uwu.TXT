@@ -1,0 +1,32 @@
+iniciar-programa
+    define-nueva-instruccion gira-derecha como inicio
+        repetir 3 veces inicio
+            gira-izquierda;
+        fin;
+    fin;
+    define-nueva-instruccion ir-pared como inicio
+        repetir 5 veces inicio
+        gira-derecha;
+        avanza;
+        mientras derecha-bloqueada hacer inicio
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+            fin;
+            avanza;
+        fin;
+        fin;
+    fin;
+    define-nueva-instruccion dejar-child como inicio
+        gira-izquierda;
+        mientras algun-zumbador-en-la-mochila hacer inicio
+            deja-zumbador;
+            avanza;
+        fin;
+    fin;
+    inicia-ejecucion
+        avanza;
+        ir-pared;
+        dejar-child;
+        apagate;
+    termina-ejecucion
+finalizar-programa

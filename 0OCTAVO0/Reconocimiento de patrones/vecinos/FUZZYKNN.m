@@ -1,17 +1,5 @@
-clear
-clear all
+function [resp] = FUZZYKNN(n, kn, P, m)
 
-shapesP = ['.','o','x','+','*','s','d','v','^','<','>','p','h'];
-%P = [3,2];
-%P = [4.2,1.8];
-%P = [2,2.1];
-%P = [2.5,2.5];
-P = [1,4];
-kn = 5;
-m = 3;
-
-shMod = 4;
-[n,t,r] = xlsread('data.xlsx');
 [x, y] = size(n);
 M = unique(n(:,y));
 lases = cell(numel(M),1);
@@ -22,15 +10,6 @@ for i=1: x
 end
 
 [a, b] = size(lases);
-Ow = 0;
-
-figure(100);
-for i=1: a
-    subX = lases{i,:};
-    plot( subX(:,1), subX(:,2), shapesP(i+shMod));
-    hold on
-end
-
 dist = zeros(x,5);
 for i=1: x
       dist(i,1) = n(i,1,1);
@@ -53,12 +32,10 @@ end
 for i=1:a
     equi(i) = equi(i) / denominadorF;
 end
-plot( P(1), P(2), shapesP(find(equi == max(equi))+shMod) );
-fprintf('\nLas equivalencias fueron:\n');
-disp(equi);
-fprintf('Por lo tanto el punto (%g,%g) pertenece a la clase %d\n',P(1),P(2),find(equi == max(equi)));
 
-
+resp{1} = KNN;
+resp{2} = find(equi == max(equi));
+resp{3} = equi;
 
 
 

@@ -196,7 +196,7 @@ dataFr = pd.read_excel('dataset-input_tenis.xlsx', sheet_name='dataText', conver
 [columnas, data, play, dataH, playN] = generate(dataFr)
 probM = genProb(columnas)
 
-dataframe = pd.read_excel('dataset-input_tenis.xlsx', sheet_name='prediccion', converters={'windy':str})
+dataframe = pd.read_excel('dataNew.xlsx', converters={'windy':str}, sheet_name='prediccion')
 prediction = list(dataframe.values)
 colums = dataframe.columns.ravel()
 tot = sum(row[1] for row in play)
