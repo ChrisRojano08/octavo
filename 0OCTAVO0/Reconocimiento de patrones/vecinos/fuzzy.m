@@ -2,12 +2,12 @@ clear
 clear all
 
 shapesP = ['.','o','x','+','*','s','d','v','^','<','>','p','h'];
-%P = [3,2];
+P = [3,2];
 %P = [4.2,1.8];
 %P = [2,2.1];
 %P = [2.5,2.5];
-P = [1,4];
-kn = 5;
+%P = [1,4];
+kn = 3;
 m = 3;
 
 shMod = 4;
@@ -45,7 +45,7 @@ KNN = sortedDists(1:kn,:);
 
 equi = zeros(1, a);
 denominadorF = 0;
-for i=1:a
+for i=1:kn
     denominadorF = denominadorF + ( 1 / ( power(KNN(i,4), 2/m-1) ) );
     equi(KNN(i,3)) = equi(KNN(i,3)) + ( 1 / ( power(KNN(i,4), 2/m-1) ) );
 end

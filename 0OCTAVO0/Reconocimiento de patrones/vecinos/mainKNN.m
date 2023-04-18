@@ -30,7 +30,7 @@ for i=1: a
 end
 
 
-res01 = UKNN(n, kn, P);
+res01 = UKNN(n, P);
 res02 = KNN(n, kn, P);
 res03 = WKNN(n, kn, P);
 res04 = FUZZYKNN(n, kn, P, m);
