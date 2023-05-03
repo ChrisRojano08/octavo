@@ -16,7 +16,7 @@ def appendColms(contTbl):
     
     return dfSharp
 
-dataframe = pd.read_excel('input.xlsx', sheet_name='data1')
+dataframe = pd.read_excel('input.xlsx', sheet_name='data')
 dataRow = dataframe.iloc[:, 0]
 dataColm = dataframe.columns.ravel()
 dataframe = dataframe.iloc[: , 1:]
