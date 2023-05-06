@@ -2,11 +2,11 @@ clear
 clear all
 
 shapesP = ['.','o','x','+','*','s','d','v','^','<','>','p','h'];
-nVec = 10;
+nVec = 3000;
 aN=0;
-bN=5;
+bN=1;
 P = [aN + (bN+bN)*rand(1),aN + (bN+bN)*rand(1)];
-n = zeros(nVec,4);
+n = zeros(nVec,6);
 for i=1:nVec
    rX = aN + (bN+bN)*rand(1);
    rY = aN + (bN+bN)*rand(1);
@@ -14,26 +14,50 @@ for i=1:nVec
    n(i,2) = rY;
 end
 
-
 for i=1: nVec
     subX = n(i,:);
-    f = subX(1)+subX(2)-10;
-    subX(4) = f;
+    f1 = subX(1)-subX(2)-0.3;
+    f2 = subX(2)-0.8;
+    f3 = -subX(1)-subX(2)+1;
     
-    if f>0
+    subX(4) = f1;
+    subX(5) = f2;
+    subX(6) = f3;
+    
+    %azul
+    if f1>0 && f2<0 && f3<0
+        subX(3) = 2;
+    end
+    
+    %rojo
+    if f1<0 && f2<0 && f3>0
         subX(3) = 1;
     end
+    
+    %verde
+    if f1<0 && f2>0 && f3<0
+        subX(3) = 3;
+    end
+    
+    
+    
     n(i,:) = subX;
 end
 
-blues = n(n(:,3) == 1,:);
-greens = n(n(:,3) == 0,:);
+reds = n(n(:,3) == 1,:);
+blues = n(n(:,3) == 2,:);
+greens = n(n(:,3) == 3,:);
+% grays = n(n(:,3) == 0,:);
 
 scatter( blues(:,1), blues(:,2), [], 'blue', 'filled');
 hold on
 scatter( greens(:,1), greens(:,2), [], 'green', 'filled');
 hold on
-
+scatter( reds(:,1), reds(:,2), [], 'red', 'filled');
+hold on
+% 
+% scatter( grays(:,1), grays(:,2), [], 'yellow', 'filled');
+% hold on
 
 
 
