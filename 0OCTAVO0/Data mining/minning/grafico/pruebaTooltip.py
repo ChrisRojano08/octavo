@@ -1,46 +1,29 @@
 import matplotlib.pyplot as plt
-import numpy as np; np.random.seed(1)
 
-x = np.random.rand(15)
-y = np.random.rand(15)
-names = np.array(list("ABCDEFGHIJKLMNO"))
-c = np.random.randint(1,5,size=15)
+imagen_mostrada = None
 
-norm = plt.Normalize(1,4)
-cmap = plt.cm.RdYlGn
-
-fig,ax = plt.subplots()
-sc = plt.scatter(x,y,c=c, s=100, cmap=cmap, norm=norm)
-
-annot = ax.annotate("", xy=(0,0), xytext=(20,20),textcoords="offset points",
-                    bbox=dict(boxstyle="round", fc="w"),
-                    arrowprops=dict(arrowstyle="->"))
-annot.set_visible(False)
-
-def update_annot(ind):
+def mostrar_imagen(event):
+    global imagen_mostrada
     
-    pos = sc.get_offsets()[ind["ind"][0]]
-    annot.xy = pos
-    text = "{}, {}".format(" ".join(list(map(str,ind["ind"]))), 
-                           " ".join([names[n] for n in ind["ind"]]))
-    annot.set_text(text)
-    annot.get_bbox_patch().set_facecolor(cmap(norm(c[ind["ind"][0]])))
-    annot.get_bbox_patch().set_alpha(0.4)
-    
+    if event.xdata is not None and event.ydata is not None:
+        x = event.xdata
+        y = event.ydata
 
-def hover(event):
-    vis = annot.get_visible()
-    if event.inaxes == ax:
-        cont, ind = sc.contains(event)
-        if cont:
-            update_annot(ind)
-            annot.set_visible(True)
-            fig.canvas.draw_idle()
+        if x > 3.8 and x < 4.2 and y > 7.8 and y < 8.2:
+            if imagen_mostrada is None:
+                imagen = plt.imread('toolImg.png')
+                imagen_mostrada = plt.imshow(imagen, extent=(x+0.2, x+2, y+0.2, y+2), zorder=10)
+                plt.show()
         else:
-            if vis:
-                annot.set_visible(False)
-                fig.canvas.draw_idle()
+            if imagen_mostrada is not None:
+                imagen_mostrada.set_visible(False)
+                plt.draw()
+                imagen_mostrada = None
 
-fig.canvas.mpl_connect("motion_notify_event", hover)
+fig, ax = plt.subplots()
+
+cid_motion = fig.canvas.mpl_connect('motion_notify_event', mostrar_imagen)
+plt.scatter(4,8, s=100)
+plt.axis([0, 15, 0, 15])
 
 plt.show()
