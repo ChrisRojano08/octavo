@@ -9,6 +9,8 @@ def mostrar_tabla(event):
         x = event.xdata
         y = event.ydata
 
+        print(tabla_mostrada)
+
         if tabla_mostrada is not None:
             tabla_mostrada.xy = (x, y)
             plt.draw()
